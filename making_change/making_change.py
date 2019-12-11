@@ -2,9 +2,12 @@
 
 import sys
 
-def making_change(amount, denominations):
-  pass 
-
+def making_change(amount, denominations=None):
+  table = [1] * (amount + 1)
+  for i in range(len(denominations)-1):
+    for j in range(denominations[i+1],amount+1):
+      table[j] += table[j-denominations[i+1]]
+  return table[-1]
 
 if __name__ == "__main__":
   # Test our your implementation from the command line
