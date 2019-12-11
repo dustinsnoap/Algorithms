@@ -3,8 +3,28 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
-
+  ops = 0
+  count = [0]*n
+  result = [['rock']*n]
+  carry = False
+  while True:
+    temp = [0]*n
+    if carry == False and count == [2]*n: break
+    else: carry = True
+    for i in range(n-1, -1, -1):
+      ops += 1
+      if carry:
+        if count[i] < 2:
+          count[i] += 1
+          carry = False
+        else:
+          count[i] = 0
+          carry = True
+      if count[i] == 0: temp[i] = 'rock'
+      if count[i] == 1: temp[i] = 'paper'
+      if count[i] == 2: temp[i] = 'scissors'
+    result.append(temp)
+  return result
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
