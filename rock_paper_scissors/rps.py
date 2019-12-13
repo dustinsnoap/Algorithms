@@ -3,7 +3,6 @@
 import sys
 
 def rock_paper_scissors(n):
-  ops = 0
   count = [0]*n
   result = [['rock']*n]
   carry = False
@@ -12,7 +11,6 @@ def rock_paper_scissors(n):
     if carry == False and count == [2]*n: break
     else: carry = True
     for i in range(n-1, -1, -1):
-      ops += 1
       if carry:
         if count[i] < 2:
           count[i] += 1
